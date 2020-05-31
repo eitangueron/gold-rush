@@ -8,6 +8,8 @@
   font-size: 30px;
   justify-content: center;
   align-content: center;
+  color: gold;
+  font-size: 80px;
 }
 .coin {
   border-radius: 50%;
@@ -23,14 +25,20 @@
   display: flex;
 }
 .player1 {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   align-self: center;
 }
 .player2 {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   align-self: center;
+}
+.wall {
+  width: 50%;
+}
+.walled {
+  background-color: lightgray;
 }
 #control-bar {
   display: grid;

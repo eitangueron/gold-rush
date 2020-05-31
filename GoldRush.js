@@ -20,9 +20,9 @@ class GoldRush extends Matrix{
             && nextCoord !== 2)
     }
 
-    checkIfCollectedCoin(){
+    // checkIfCollectedCoin(){
 
-    }
+    // }
 
     movePlayer(player, direction){
 
@@ -31,7 +31,8 @@ class GoldRush extends Matrix{
         if(direction === 'right' 
             && playerCoord.x < this.colNum - 1
             && this.matrix[playerCoord.y][playerCoord.x+1] !== 1 
-            && this.matrix[playerCoord.y][playerCoord.x+1] !== 2) {
+            && this.matrix[playerCoord.y][playerCoord.x+1] !== 2
+            && this.matrix[playerCoord.y][playerCoord.x+1] !== 'w') {
                 if(this.matrix[playerCoord.y][playerCoord.x+1] === 'c'){
                     this.playersScores[player] += 10
                 }       
@@ -42,7 +43,8 @@ class GoldRush extends Matrix{
         else if (direction === 'left' 
             && playerCoord.x > 0
             && this.matrix[playerCoord.y][playerCoord.x-1] !== 1 
-            && this.matrix[playerCoord.y][playerCoord.x-1] !== 2){
+            && this.matrix[playerCoord.y][playerCoord.x-1] !== 2
+            && this.matrix[playerCoord.y][playerCoord.x-1] !== 'w'){
                 if(this.matrix[playerCoord.y][playerCoord.x-1] === 'c'){
                     this.playersScores[player] += 10
                 }
@@ -53,7 +55,8 @@ class GoldRush extends Matrix{
         else if (direction === 'up' 
             && playerCoord.y > 0 
             && this.matrix[playerCoord.y-1][playerCoord.x] !== 1 
-            && this.matrix[playerCoord.y-1][playerCoord.x] !== 2){
+            && this.matrix[playerCoord.y-1][playerCoord.x] !== 2
+            && this.matrix[playerCoord.y-1][playerCoord.x] !== 'w'){
                 if(this.matrix[playerCoord.y-1][playerCoord.x] === 'c'){
                     this.playersScores[player] += 10
                 }
@@ -64,7 +67,8 @@ class GoldRush extends Matrix{
         else if (direction === 'down' 
             && playerCoord.y < this.rowNum - 1
             && this.matrix[playerCoord.y+1][playerCoord.x] !== 1 
-            && this.matrix[playerCoord.y+1][playerCoord.x] !== 2){
+            && this.matrix[playerCoord.y+1][playerCoord.x] !== 2
+            && this.matrix[playerCoord.y+1][playerCoord.x] !== 'w'){
                 if(this.matrix[playerCoord.y+1][playerCoord.x] === 'c'){
                     this.playersScores[player] += 10
                 }
@@ -81,11 +85,23 @@ class GoldRush extends Matrix{
     generateRandomCoins(numOfCoinsToGenerate){
         let coinsAdded = 0
         while(coinsAdded<numOfCoinsToGenerate){
-            const randomX = Math.floor(Math.random()*(this.rowNum-1))
+            const randomX = Math.floor(Math.random()*(this.colNum-1))
             const randomY = Math.floor(Math.random()*(this.rowNum-1))
-            if(this.matrix[randomX][randomY] === '.'){
+            if(this.matrix[randomY][randomX] === '.'){
                 this.matrix[this.alter(randomX,randomY,'c')]
                 coinsAdded++
+            }
+        }
+    }
+
+    generateRandomWalls(numOfWallsToGenerate){
+        let wallsAdded = 0
+        while(wallsAdded<numOfWallsToGenerate){
+            const randomX = Math.floor(Math.random()*(this.colNum-1))
+            const randomY = Math.floor(Math.random()*(this.rowNum-1))
+            if(this.matrix[randomY][randomX] === '.'){
+                this.matrix[this.alter(randomX,randomY,'w')]
+                wallsAdded++
             }
         }
     }

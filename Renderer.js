@@ -6,12 +6,13 @@ class Renderer {
         for(let row of matrix){
             for(let box of row){
                 if(box === 'c'){
-                    
                     $('#board').append('<div class=box><img class="coin" src="https://img.icons8.com/doodle/48/000000/gold-bars--v1.png"/></div></div>')
                 } else if( box === 1){
                     $('#board').append('<div class=box><img class="player1" src="https://img.icons8.com/cotton/64/000000/pacman.png"/></div>')
                 } else if(box === 2){
                     $('#board').append('<div class=box><img class="player2" src="https://img.icons8.com/color/48/000000/eating-person.png"/></div>')
+                } else if (box === 'w'){
+                    $('#board').append('<div class="box walled"><img class="wall" src="https://img.icons8.com/ios-filled/50/000000/brick-wall.png"/></div>')
                 } else {
                     $('#board').append('<div class=box><div class="empty"></div></div>')
                 }
