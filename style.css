@@ -37,7 +37,9 @@
   transform: rotateY(180deg);
 }
 .wall {
-  width: 50%;
+  width: 75px;
+  height: 75px;
+  align-self: center;
 }
 .walled {
   background-color: lightgray;
