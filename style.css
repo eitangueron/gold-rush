@@ -10,6 +10,7 @@
   align-content: center;
   color: gold;
   font-size: 80px;
+  background-color: white;
 }
 .coin {
   border-radius: 50%;
@@ -33,6 +34,7 @@
   width: 75px;
   height: 75px;
   align-self: center;
+  transform: rotateY(180deg);
 }
 .wall {
   width: 50%;
@@ -53,6 +55,7 @@
   height: 59%;
   font-size: 44px;
   text-align: center;
+  background-color: white;
 }
 #play-btn {
   width: 51%;
@@ -68,4 +71,10 @@
 #player1 {
   justify-self: start;
   margin-left: 1%;
+}
+a {
+  margin-bottom: 1%;
+}
+body {
+  background: antiquewhite;
 }

@@ -6,18 +6,18 @@ let game = false
 const startGame = () => {                
     try{
     game = true
+    $('#board').css('border-right','solid black 4px')           //design bug
     const rowNum = $('#input-rows').val()
     const colNum = $('#input-columns').val()
     board = new GoldRush(rowNum,colNum)
-    let amountOfCoins = Math.round(rowNum * colNum /3)       
-    if(amountOfCoins%2===0){amountOfCoins++}        //uneven - one winner!
-    board.generateRandomCoins(amountOfCoins)
-    let amountOfWalls = Math.round(rowNum * colNum /5)  
+    let amountOfCoins = Math.round(rowNum * colNum /3)       //33% coins
+    if(amountOfCoins%2===0){amountOfCoins++}                //uneven -so there'll b only one winner!
+    board.generateRandomCoins(amountOfCoins)        
+    let amountOfWalls = Math.round(rowNum * colNum /5)              //20% walls
     board.generateRandomWalls(amountOfWalls)
     renderer.renderBoard(board.matrix, board.rowNum, board.colNum, board.playersScores)
     $('#play-btn').text('Play again')
-    // console.log($('#play-btn').text())
-    }catch(err){
+    } catch(err){
     alert('Please enter rows and columns!')
     } 
 }
