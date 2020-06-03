@@ -1,7 +1,7 @@
 class Renderer {
      renderBoard(matrix, rowNum, colNum, playersScores){
         $('#board').empty()
-         $('#board').css('grid-template-columns',`repeat(${colNum},1fr)`)           //change 5 to adjustable to input
+         $('#board').css('grid-template-columns',`repeat(${colNum},1fr)`)           
          $('#board').css('grid-template-rows',`repeat(${rowNum},1fr)`)
         for(let row of matrix){
             for(let box of row){

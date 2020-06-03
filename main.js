@@ -18,7 +18,7 @@ const startGame = () => {
     renderer.renderBoard(board.matrix, board.rowNum, board.colNum, board.playersScores)
     $('#play-btn').text('Play again')
     } catch(err){
-    alert('Please enter rows and columns!')
+    alert('Please enter valid rows and columns!')
     } 
 }
 

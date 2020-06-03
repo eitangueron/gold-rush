@@ -20,9 +20,7 @@ class GoldRush extends Matrix{
             && nextCoord !== 2)
     }
 
-    // checkIfCollectedCoin(){
 
-    // }
 
     movePlayer(player, direction){
 
